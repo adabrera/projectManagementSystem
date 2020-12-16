@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Branch Home</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+<div class="container my-2">
+    <div class="card">
+        <div class="card-body">
+            <div th:switch="${branches}" class="container my-5">
+                <p class="my-5">
+                    <a href="/branches/signup" class="btn btn-primary"><i
+                            class="fas fa-user-plus ml-2"> Add Branch</i></a>
+                </p>
+                <div class="col-md-10">
+                    <h2 th:case="null">No Branches yet!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone No</th>
+                                <th>Address</th>
+                                <th>Manager Name</th>
+                                <th>Manager Start Date</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="branch : ${branches}">
+                                <td th:text="${branch.uniqueName}"></td>
+                                <td th:text="${branch.email}"></td>
+                                <td th:text="${branch.telephoneNumber}"></td>
+                                <td th:text="${branch.address}"></td>
+                                <td th:text="${branch.branchManager}"></td>
+                                <td th:text="${branch.startDate}"></td>
+                                <td><a th:href="@{/branches/edit/{id}(id=${branch.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+                                <td><a th:href="@{/branches/delete/{id}(id=${branch.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

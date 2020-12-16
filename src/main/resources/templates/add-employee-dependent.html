@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Add Employee Dependent</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+
+<div class="container my-5">
+    <h3> Set Branch Manager</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/employeeDependents/add}" th:object="${employeeDependent}" method="post">
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+                            <label for="dependentName" class="col-form-label">Dependent Name</label>
+                            <input type="text" th:field="*{dependentName}" class="form-control" id="dependentName" placeholder="Dependent Name">
+                            <span th:if="${#fields.hasErrors('dependentName')}" th:errors="*{dependentName}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="dateOfBirth" class="col-form-label">DOB</label>
+                            <input type="date" th:field="*{dateOfBirth}" class="form-control" id="dateOfBirth" placeholder="DOB">
+                            <span th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="relationship" class="col-form-label">Relationship</label>
+                            <input type="text" th:field="*{relationship}" class="form-control" id="relationship" placeholder="Relationship">
+                            <span th:if="${#fields.hasErrors('relationship')}" th:errors="*{relationship}" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="employee" class="col-form-label">Employee</label>
+                            <select class="form-control" th:field="*{employee}" id="employee">
+                                <option value="0">Select Employee</option>
+                                <option th:each="e : ${employeeList}" th:value="${e.id}" th:text="${e.name}"></option>
+                            </select>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value="Set Employee Dependent">
+                        </div>
+
+                        <div class="form-group col-md-8"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
