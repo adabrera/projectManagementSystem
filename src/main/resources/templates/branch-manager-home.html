@@ -29,7 +29,7 @@
                                 <tbody>
                                 <tr th:each="branchManager : ${branchManagers}">
                                     <td th:text="${branchManager.id}"></td>
-                                    <td th:text="${branchManager.employee.name}"></td>
+                                    <td th:text="${branchManager?.employee?.name}"></td>
 
                                     <td><a th:href="@{/branchManagers/edit/{id}(id=${branchManager.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                     <td><a th:href="@{/branchManagers/delete/{id}(id=${branchManager.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>

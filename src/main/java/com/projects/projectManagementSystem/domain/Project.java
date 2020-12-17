@@ -1,8 +1,6 @@
 package com.projects.projectManagementSystem.domain;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -19,12 +17,6 @@ public class Project
 
 	@Column(name = "PROJECT_DESCRIPTION")
 	private String projectDescription;
-
-	@Column(name = "START_DATE")
-	private LocalDate startDate;
-
-	@Column(name = "END_DATE")
-	private LocalDate endDate;
 
 	@OneToOne
 	@JoinColumn(name = "BRANCH_MANAGER_ID")
@@ -55,26 +47,6 @@ public class Project
 	public void setProjectName( String projectName )
 	{
 		this.projectName = projectName;
-	}
-
-	public LocalDate getStartDate()
-	{
-		return startDate;
-	}
-
-	public void setStartDate( LocalDate startDate )
-	{
-		this.startDate = startDate;
-	}
-
-	public LocalDate getEndDate()
-	{
-		return endDate;
-	}
-
-	public void setEndDate( LocalDate endDate )
-	{
-		this.endDate = endDate;
 	}
 
 	public BranchManager getBranchManager()
@@ -123,10 +95,6 @@ public class Project
 			return false;
 		if ( projectDescription != null ? !projectDescription.equals( project.projectDescription ) : project.projectDescription != null )
 			return false;
-		if ( startDate != null ? !startDate.equals( project.startDate ) : project.startDate != null )
-			return false;
-		if ( endDate != null ? !endDate.equals( project.endDate ) : project.endDate != null )
-			return false;
 		if ( branchManager != null ? !branchManager.equals( project.branchManager ) : project.branchManager != null )
 			return false;
 		return projectHours != null ? projectHours.equals( project.projectHours ) : project.projectHours == null;
@@ -138,8 +106,6 @@ public class Project
 		int result = id != null ? id.hashCode() : 0;
 		result = 31 * result + ( projectName != null ? projectName.hashCode() : 0 );
 		result = 31 * result + ( projectDescription != null ? projectDescription.hashCode() : 0 );
-		result = 31 * result + ( startDate != null ? startDate.hashCode() : 0 );
-		result = 31 * result + ( endDate != null ? endDate.hashCode() : 0 );
 		result = 31 * result + ( branchManager != null ? branchManager.hashCode() : 0 );
 		result = 31 * result + ( projectHours != null ? projectHours.hashCode() : 0 );
 		return result;

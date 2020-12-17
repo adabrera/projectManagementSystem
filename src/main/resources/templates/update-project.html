@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html xmlns:layout="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml" layout:decorate="~{fragments/main_layout}">
+<head>
+    <title>Update Project</title>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+    <div class="container my-5">
+        <h3> Update Project</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-8">
+                    <form action="#" th:action="@{/projects/update/{id}(id=${project.id})}" th:object="${project}" method="post">
+                        <div class="row">
+
+                            <div class="form-group col-md-8">
+                                <label for="projectName" class="col-form-label">Project Name</label>
+                                <input type="text" th:field="*{projectName}" class="form-control" id="projectName" placeholder="projectName">
+                                <span th:if="${#fields.hasErrors('projectName')}" th:errors="*{projectName}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="projectDescription" class="col-form-label">Project Description</label>
+                                <input type="text" th:field="*{projectDescription}" class="form-control" id="projectDescription" placeholder="projectDescription">
+                                <span th:if="${#fields.hasErrors('projectDescription')}" th:errors="*{projectDescription}" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <label for="branchManager" class="col-form-label">Branch Manager</label>
+                                <select class="form-control" th:field="*{branchManager}" id="branchManager">
+                                    <option value="0">Select Branch Manager</option>
+                                    <option th:each="b : ${branchManagerList}" th:value="${b.id}" th:text="${b.employee.name}"></option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-8">
+                                <input type="submit" class="btn btn-primary" value="Update Manager">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

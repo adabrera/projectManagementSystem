@@ -1,53 +1,54 @@
-package com.projects.projectManagementSystem.domain;
-
-import java.io.Serializable;
-
-public class EmployeeProjectHoursId implements Serializable
-{
-	private Long project;
-	private Long employee;
-
-	public Long getProject()
-	{
-		return project;
-	}
-
-	public void setProject( Long project )
-	{
-		this.project = project;
-	}
-
-	public Long getEmployee()
-	{
-		return employee;
-	}
-
-	public void setEmployee( Long employee )
-	{
-		this.employee = employee;
-	}
-
-	@Override
-	public boolean equals( Object o )
-	{
-
-		if ( this == o )
-			return true;
-		if ( o == null || getClass() != o.getClass() )
-			return false;
-
-		EmployeeProjectHoursId that = ( EmployeeProjectHoursId ) o;
-
-		if ( project != null ? !project.equals( that.project ) : that.project != null )
-			return false;
-		return employee != null ? employee.equals( that.employee ) : that.employee == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = project != null ? project.hashCode() : 0;
-		result = 31 * result + ( employee != null ? employee.hashCode() : 0 );
-		return result;
-	}
-}
+//package com.projects.projectManagementSystem.domain;
+//
+//import javax.persistence.MappedSuperclass;
+//import java.io.Serializable;
+//
+//@MappedSuperclass
+//public class EmployeeProjectHoursId implements Serializable
+//{
+//	private Long projectId;
+//	private Long employeeId;
+//
+//	public Long getProjectId()
+//	{
+//		return projectId;
+//	}
+//
+//	public void setProjectId( Long projectId )
+//	{
+//		this.projectId = projectId;
+//	}
+//
+//	public Long getEmployeeId()
+//	{
+//		return employeeId;
+//	}
+//
+//	public void setEmployeeId( Long employeeId )
+//	{
+//		this.employeeId = employeeId;
+//	}
+//
+//	@Override
+//	public boolean equals( Object o )
+//	{
+//		if ( this == o )
+//			return true;
+//		if ( o == null || getClass() != o.getClass() )
+//			return false;
+//
+//		EmployeeProjectHoursId that = ( EmployeeProjectHoursId ) o;
+//
+//		if ( projectId != null ? !projectId.equals( that.projectId ) : that.projectId != null )
+//			return false;
+//		return employeeId != null ? employeeId.equals( that.employeeId ) : that.employeeId == null;
+//	}
+//
+//	@Override
+//	public int hashCode()
+//	{
+//		int result = projectId != null ? projectId.hashCode() : 0;
+//		result = 31 * result + ( employeeId != null ? employeeId.hashCode() : 0 );
+//		return result;
+//	}
+//}

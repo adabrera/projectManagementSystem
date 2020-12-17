@@ -35,7 +35,7 @@
                                 <td th:text="${branch.email}"></td>
                                 <td th:text="${branch.telephoneNumber}"></td>
                                 <td th:text="${branch.address}"></td>
-                                <td th:text="${branch.branchManager}"></td>
+                                <td th:text="${branch?.branchManager}"></td>
                                 <td th:text="${branch.startDate}"></td>
                                 <td><a th:href="@{/branches/edit/{id}(id=${branch.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
                                 <td><a th:href="@{/branches/delete/{id}(id=${branch.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
